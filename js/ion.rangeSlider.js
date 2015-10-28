@@ -2059,17 +2059,21 @@
                 big_p = this.toFixed(100 / big_num);
             }
 
-            if (big_num > 4) {
-                small_max = 3;
-            }
-            if (big_num > 7) {
-                small_max = 2;
-            }
-            if (big_num > 14) {
-                small_max = 1;
-            }
-            if (big_num > 28) {
-                small_max = 0;
+            if(typeof o.small_max !== 'number'){
+                if (big_num > 4) {
+                    small_max = 3;
+                }
+                if (big_num > 7) {
+                    small_max = 2;
+                }
+                if (big_num > 14) {
+                    small_max = 1;
+                }
+                if (big_num > 28) {
+                    small_max = 0;
+                }                
+            }else{
+                small_max = o.small_max;
             }
 
             for (i = 0; i < big_num + 1; i++) {
